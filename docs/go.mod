@@ -1,16 +1,16 @@
-module github.com/urfave/cli/docs/v3
+version: 2
+updates:
+  - package-ecosystem: "gomod"
+    directory: "/"  # Root-level go.mod
+    schedule:
+      interval: "weekly"
 
-go 1.23.2
+  - package-ecosystem: "gomod"
+    directory: "/docs"  # go.mod inside the docs folder
+    schedule:
+      interval: "weekly"
 
-replace github.com/urfave/cli/v3 => ../
-
-require (
-	github.com/urfave/cli-altsrc/v3 v3.0.1
-	github.com/urfave/cli/v3 v3.1.1
-)
-
-require (
-	github.com/BurntSushi/toml v1.5.0 // indirect
-	github.com/stretchr/testify v1.10.0 // indirect
-	gopkg.in/yaml.v3 v3.0.1 // indirect
-)
+  - package-ecosystem: "github-actions"
+    directory: "/"  # GitHub Actions workflows
+    schedule:
+      interval: "weekly"
